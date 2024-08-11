@@ -2,7 +2,7 @@
 function MobileMenu() {
     return(
         <>
-            <div>I am just a mobile menu</div>
+            <div></div>
         </>
     )
 }
