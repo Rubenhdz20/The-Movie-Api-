@@ -1,21 +1,11 @@
-import Header from './components/Header/Header'
-import SearchBar from './components/SearchBar/index'
-import Section from './pages/Section/index'
-import Categories from './pages/Categories/Categories'
-import Footer from './components/Footer/Footer'
-import './App.css'
+import React from 'react';
+import MyRoutes from './routes'
 
 
 function App() {
   return (
     <>
-      <Header/>
-      <SearchBar/>
-      <Section title="Premieres" />
-      <Section title="Series"/>
-      <Section title="Movies"/>
-      <Categories/>
-      <Footer/>
+      <MyRoutes />
     </>
   )
 }

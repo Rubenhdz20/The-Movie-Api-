@@ -1,18 +1,23 @@
+import { Link } from 'react-router-dom';
 
 function Section({ title, items }) {
     return(
         <section id="trendingPreview" className="">
             <div className="">
                 <h2 className="">{title}</h2>
-                <button className="">See all</button>
+                <Link to={`/search-results`}>
+                    <button className="">See all</button>
+                </Link>
             </div>
             <article className="">
                 <div className="">
-                    <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    className=""
-                    alt="Movie Name"
-                    />
+                   <Link to={`/movie/1`}>
+                        <img
+                            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                            className=""
+                            alt="Movie Name"
+                        />
+                   </Link>
                 </div>
                 {/* <div className="carousel">
                     {items.map((item, index) => (
@@ -27,3 +32,5 @@ function Section({ title, items }) {
 }
 
 export default Section;
+
+// The fetched data is passed down to the Section and Categories components as props. These components will render the data based on what's received.
