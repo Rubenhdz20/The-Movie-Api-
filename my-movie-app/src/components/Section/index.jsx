@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 function Section({ title, items }) {
     return(
-        <section id="trendingPreview" className="">
-            <div className="">
-                <h2 className="">{title}</h2>
+        <section id="trendingPreview" className="flex flex-col items-center justify-center p-9 bg-background text-white">
+            <div className="flex space-x-28 p-8">
+                <h2 className="text-xl">{title}</h2>
                 <Link to={`/search-results`}>
                     <button className="">See all</button>
                 </Link>
@@ -14,7 +14,7 @@ function Section({ title, items }) {
                    <Link to={`/movie/1`}>
                         <img
                             src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                            className=""
+                            className="rounded-xl"
                             alt="Movie Name"
                         />
                    </Link>

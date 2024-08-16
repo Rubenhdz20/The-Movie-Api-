@@ -8,9 +8,7 @@ import Categories from '../pages/Categories/Categories';
 import Footer from '../components/Footer/Footer';
 
 function Layout() {
-
   return (
-    <div className='layout'>
       <main>
         <Header/>
         <SearchBar/>
@@ -20,7 +18,6 @@ function Layout() {
         <Categories/>
         <Footer/>
       </main>
-    </div>
   );
 }
 
