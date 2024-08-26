@@ -1,6 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function Section({ title, items }) {
+function Carousel({ title, items }) {
+
+    useEffect(() => {
+        
+    }, []);
+
+
     return(
         <section id="trendingPreview" className="flex flex-col items-center justify-center p-9 bg-background text-white">
             <div className="flex space-x-28 p-8">
@@ -31,6 +38,6 @@ function Section({ title, items }) {
     )
 }
 
-export default Section;
+export default Carousel;
 
 // The fetched data is passed down to the Section and Categories components as props. These components will render the data based on what's received.
