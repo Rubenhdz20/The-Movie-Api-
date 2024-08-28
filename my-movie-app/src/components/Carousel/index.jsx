@@ -1,39 +1,38 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { MovieCard } from '../MovieCard/index';
+import { useGetData } from '../../hooks/useGetData';
 
-function Carousel({ title, items }) {
+function Carousel({ title }) {
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        
-    }, []);
+    const { dataMovies, loading } = useGetData('/trending/movie/day');
 
+    const handleClick = () => {
+        navigate(`/movie-app/${title.replace(/ /g, "")}${id ? `/${id}` : ""}`);
+    };
+
+    console.log(dataMovies);
 
     return(
         <section id="trendingPreview" className="flex flex-col items-center justify-center p-9 bg-background text-white">
             <div className="flex space-x-28 p-8">
                 <h2 className="text-xl">{title}</h2>
-                <Link to={`/search-results`}>
-                    <button className="">See all</button>
-                </Link>
+                <button className="">See all</button>
             </div>
-            <article className="">
-                <div className="">
-                   <Link to={`/movie/1`}>
-                        <img
-                            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                            className="rounded-xl"
-                            alt="Movie Name"
-                        />
-                   </Link>
-                </div>
-                {/* <div className="carousel">
-                    {items.map((item, index) => (
-                        <div key={index} className="carousel-item">
-                            <img src={item.image} alt={item.title} />
+            <div className="flex overflow-hidden">
+                <div className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory w-full">
+                    {dataMovies.map((item) => (
+                        <div key={item.id} className="snap-start w-full flex-shrink-0">
+                            <img 
+                                src={item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : 'path_to_default_image.jpg'}  
+                                alt={item.original_title}
+                                className="w-full h-auto object-cover rounded-lg md:w-1/2"
+                            />
                         </div>
                     ))}
-                </div> */}
-            </article>
+                </div>
+            </div>
         </section>
     )
 }

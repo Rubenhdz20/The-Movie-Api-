@@ -10,9 +10,7 @@ function Layout() {
       <main>
         <Header/>
         <SearchBar/>
-        <Carousel title="Premieres"/>
-        <Carousel title="Series"/>
-        <Carousel title="Movies"/>
+        <Carousel title="Trending"/>
         <Categories/>
         <Footer/>
       </main>

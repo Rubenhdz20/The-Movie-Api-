@@ -12,7 +12,7 @@ function MovieCard({ movie }) {
   );
 }
 
-export default MovieCard;
+export { MovieCard };
 
 // THE IDEA OF THIS COMPONENT IS TO SHOW THE IMG OF THE MOVIE
 // WHEN CLICKING IT CAN REDIRECT YOU TO THE MOVIE DETAILS COMPONENT 
