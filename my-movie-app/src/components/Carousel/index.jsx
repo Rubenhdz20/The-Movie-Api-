@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import  MovieCard  from '../MovieCard/index';
 import { useGetData } from '../../hooks/useGetData';
+import  MovieCard  from '../MovieCard/index';
+import SeeAllButton from "../SeeAllButton";
 
 function Carousel({ title }) {
     const navigate = useNavigate();
@@ -27,10 +28,9 @@ function Carousel({ title }) {
         <section id="trendingPreview" className="relative flex flex-col items-center justify-center p-9 bg-background text-white">
             <div className="flex space-x-28 p-8">
                 <h2 className="text-xl">{title}</h2>
-                <button className="">See all</button>
+                <SeeAllButton></SeeAllButton>
             </div>
             
-          
             <button 
                 onClick={scrollLeft} 
                 className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
@@ -51,7 +51,7 @@ function Carousel({ title }) {
                         <div key={item.id} className="snap-start w-full flex-shrink-0 md:w-1/2">
                             <MovieCard  
                                 posterPath={item.poster_path}
-                                onClick={() => navigate(`/movie/${item.id}`)}
+                                id={item.id}
                                 className="w-full h-auto object-cover rounded-lg cursor-pointer"
                             />
                         </div>

@@ -1,25 +1,38 @@
+import { useCategories } from "../../hooks/useGetCategories";
+import Category from "./Category";
 
 function Categories() {
+    const { dataMovies, loading } = useCategories('/genre/movie/list');
+
+    console.log(dataMovies);
+
     return(
         <section id="categories" className="bg-background text-white">
             <h2 className="ml-5 mt-16 text-xl">Categories</h2>
-            <article className="flex justify-between p-9">
-                <div className="w-[9rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg">
-                    <h3 id="id28" className="text-lg text-background">Adventure</h3>
-                </div>
-
-                <div className="w-[9rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg">
-                    <h3 id="id28" className="text-lg text-background">Adventure</h3>
-                </div>
+            <article className="h-full w-full grid grid-cols-4 items-center justify-between gap-4 p-9">
+                {dataMovies.map((item) => (
+                    <div key={item.id} className="w-[7rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg cursor-pointer">
+                        <Category  
+                            name={item.name}
+                        />
+                    </div>
+                ))}
             </article>
         </section>
     )
 }
 
+
 export default Categories;
 
-{/* <div className="categories">
-      {categories.map((category, index) => (
-        <button key={index} className="category-button">{category.name}</button>
-      ))}
-    </div> */}
+// Which components are the ones that when clicking to them you will be redirected to the search results 
+// SearchBar when clicking the magnifier svg
+// Category Component which is a button when you click to it 
+// The button that says SeeAll, it might be a component 
+
+// Which component will need to be redirected to the MovieDetails when you click it 
+// Movie Card of the Carousel 
+// Within searchResults each Movie Card
+// Arrow button is the one that redirects you to the home page 
+
+// I have to rethink the routes of the project 

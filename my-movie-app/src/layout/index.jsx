@@ -10,11 +10,11 @@ function Layout() {
   return (
       <main>
         <Header/>
-        <SearchBar/>
         <ErrorBoundary>
+          <SearchBar/>
           <Carousel title="Trending"/>
+          <Categories/>
         </ErrorBoundary>
-        <Categories/>
         <Footer/>
       </main>
   );
