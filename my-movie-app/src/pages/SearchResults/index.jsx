@@ -1,37 +1,39 @@
 import React from 'react';
+import { useSearch } from '../../hooks/useSearch';
 import ArrowButton from '../../components/ArrowButton';
 
 function SearchResults() {
+    const { page, setPage, movies, loading } = useSearch();
+
+    const loadMoreMovies = () => {
+        setPage(page + 1);
+    };
+
     return(
         <section className="flex flex-col justify-center bg-background text-white">
-            {/* Componente SearchBar */}
-            <ArrowButton></ArrowButton> 
-            
-            <div className="grid justify-items-center items-center grid-cols-2 mt-8 mb-8">
-                <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    alt="Movie Name"
-                    className="w-[10rem] h-[14rem] mt-4 mb-4 rounded-xl"
-                />
-                <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    alt="Movie Name"
-                    className="w-[10rem] h-[14rem] mt-4 mb-4 rounded-xl"
-                />
-                <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    alt="Movie Name"
-                    className="w-[10rem] h-[14rem] mt-4 mb-4 rounded-xl"
-                />
-            </div>
+            <ArrowButton />
 
-            <div className="">
-                Hola
-                {/* {movies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
-                ))} */}
-            </div>
-        </section>
+            {loading && page === 1 ? (
+                <div>Loading...</div>  // Display a loading message while the first page is loading
+            ) : (
+                <div className="grid justify-items-center items-center grid-cols-2 mt-8 mb-8">
+                    {movies.map((movie) => (
+                        <img
+                            key={movie.id}
+                            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                            alt={movie.title}
+                            className="w-[10rem] h-[14rem] mt-4 mb-4 rounded-xl"
+                        />
+                    ))}
+                </div>
+            )}
+
+            {!loading && movies.length > 0 && (
+                <button onClick={loadMoreMovies} className="p-2 bg-blue-500 rounded">
+                    Load More
+                </button>
+            )}
+         </section>
         
     )
 }

@@ -5,7 +5,7 @@ function SeeAllButton() {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/movie-app/search/movies/trending`);
+        navigate(`/trending/movie/day`);
     };
 
     return (

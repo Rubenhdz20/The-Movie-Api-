@@ -30,21 +30,18 @@ function Carousel({ title }) {
                 <h2 className="text-xl">{title}</h2>
                 <SeeAllButton></SeeAllButton>
             </div>
-            
             <button 
                 onClick={scrollLeft} 
                 className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
             >
                 &#9664; {/* Left arrow symbol */}
             </button>
-
             <button 
                 onClick={scrollRight} 
                 className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
             >
                 &#9654; {/* Right arrow symbol */}
             </button>
-            
             <div className="flex flex-col items-center overflow-hidden">
                 <div id="carousel" className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory w-full scrollbar-none">
                     {dataMovies.map((item) => (

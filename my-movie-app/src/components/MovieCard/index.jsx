@@ -5,7 +5,7 @@ function MovieCard({ title, posterPath, id }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/movie-app/movie/${id}`);
+        navigate(`/movie/${id}`);  // Redirect to the MovieDetails page with the movie ID
     };
 
     return (

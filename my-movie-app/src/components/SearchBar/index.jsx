@@ -7,7 +7,7 @@ function SearchBar() {
 
     const handleSearch = () => {
         if (searchTerm.trim()) {
-            navigate(`/movie-app/search/movies/${searchTerm}`);
+            navigate(`/search/${searchTerm}`);
         }
     };
 
