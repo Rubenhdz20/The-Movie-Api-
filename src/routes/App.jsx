@@ -13,7 +13,6 @@ const App = () => {
                 <Route path="/search/:query" element={<SearchResults />} />
                 <Route path="/trending/movie/day" element={<SearchResults />} />
                 <Route path="/category/:category" element={<SearchResults />} />
-                {/* <Route path="*" element={<NotFound />} /> */}
             </Routes> 
         </BrowserRouter>
     )
