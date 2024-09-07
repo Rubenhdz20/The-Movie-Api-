@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import api from '../../utils/axiosPreset';
 
 function MovieDetails() {
-    const { id } = useParams();  // Get the movie ID from the URL
+    const { id } = useParams();  
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ function MovieDetails() {
         const fetchMovieDetails = async () => {
             try {
                 const { data } = await api.get(`/movie/${id}`);
-                setMovie(data);  // Set the movie data
+                setMovie(data);  
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching movie details:", error);
@@ -20,17 +20,17 @@ function MovieDetails() {
         };
 
         fetchMovieDetails();
-    }, [id]);  // Re-run when the movie ID changes
+    }, [id]); 
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className='bg-background text-white'>Loading...</div>;
     }
 
     return(
         <section id="movieDetails" className="flex flex-col items-center justify-center bg-background text-white">
-            <div className="flex space-x-28 p-10">
+            <div className="flex items-center justify-center space-x-28 p-10">
                 <ArrowButton></ArrowButton>
-                <h1 className="text-xl text-white">{movie.title}</h1>
+                <h1 className="text-xl text-white md:text-2xl">{movie.title}</h1>
             </div>
             
             <img
@@ -39,19 +39,17 @@ function MovieDetails() {
                 className="mt-4 mb-4 rounded-xl"
             />
 
-            {/* <img src={movie.image} alt={movie.name} className="" /> */}
-
             <div className="flex flex-col items-center justify-center p-10">
                 <h2 className="mb-4 text-lg">Score: {movie.vote_average}</h2>
-                <p>{movie.overview}</p>
+                <p className='max-w-[75rem]'>{movie.overview}</p>
             </div>
 
             <h2 className="ml-5 mt-16 text-xl">Category</h2>
 
-            <article className="flex flex-row items-center justify-center p-10">
+            <article className="grid grid-cols-3 items-center justify-between gap-4 p-10 md:flex">
                 {movie.genres.map((genre) => (
-                    <div key={genre.id} className="w-[9rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg mr-4">
-                        <h3 className="text-lg text-background">{genre.name}</h3>
+                    <div key={genre.id} className="w-[7rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg mr-4 md:w-[9rem]">
+                        <h3 className="text-background md:text-xl">{genre.name}</h3>
                     </div>
                 ))}
             </article>
@@ -60,5 +58,3 @@ function MovieDetails() {
 }
 
 export default MovieDetails
-
-// THE IDEA OF THIS COMPONENT IS TO SHOW THE DETAIL INFORMATION OF EVERY MOVIE SELECTED

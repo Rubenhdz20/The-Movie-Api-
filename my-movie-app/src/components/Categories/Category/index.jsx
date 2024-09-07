@@ -6,13 +6,13 @@ function Category({title, id}) {
     const navigate = useNavigate();
 
     const handleCategoryClick = () => {
-        navigate(`/category/${id}`);  // This navigates to the correct route
+        navigate(`/category/${id}`);  
     };
 
     return(
         <>
-            <div onClick={handleCategoryClick} className="w-[7rem] h-[3rem] flex items-center justify-center bg-background-button rounded-lg cursor-pointer">
-                <p>{title}</p>
+            <div onClick={handleCategoryClick} className="h-[3rem] flex items-center justify-center bg-background-button text-background rounded-lg cursor-pointer">
+                <p className='md:text-xl'>{title}</p>
             </div>
         </>
     )

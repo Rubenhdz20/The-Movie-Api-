@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSearch } from '../../hooks/useSearch';
 import ArrowButton from '../../components/ArrowButton';
+import MovieCard from '../../components/MovieCard';
 
 function SearchResults() {
     const { page, setPage, movies, loading } = useSearch();
@@ -18,11 +19,11 @@ function SearchResults() {
             ) : (
                 <div className="grid justify-items-center items-center grid-cols-2 mt-8 mb-8">
                     {movies.map((movie) => (
-                        <img
+                        <MovieCard
                             key={movie.id}
-                            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                            id={movie.id}
+                            posterPath={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                             alt={movie.title}
-                            className="w-[10rem] h-[14rem] mt-4 mb-4 rounded-xl"
                         />
                     ))}
                 </div>

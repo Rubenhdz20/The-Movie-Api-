@@ -5,7 +5,7 @@ function MovieCard({ title, posterPath, id }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/movie/${id}`);  // Redirect to the MovieDetails page with the movie ID
+        navigate(`/movie/${id}`); 
     };
 
     return (
@@ -13,7 +13,7 @@ function MovieCard({ title, posterPath, id }) {
             <img 
                 src={posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'path_to_default_image.jpg'} 
                 alt={title} 
-                className="w-[25rem] h-auto object-cover rounded-lg"
+                className="w-[20rem] object-cover rounded-lg cursor-pointer md:w-[25rem]"
             />
         </div>
     );
@@ -21,5 +21,3 @@ function MovieCard({ title, posterPath, id }) {
 
 export default MovieCard;
 
-// THE IDEA OF THIS COMPONENT IS TO SHOW THE IMG OF THE MOVIE
-// WHEN CLICKING IT CAN REDIRECT YOU TO THE MOVIE DETAILS COMPONENT 
