@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: 'The-Movie-Api-',
+  base: '/The-Movie-Api-',
   build: {
     outDir: 'dist',
   },
