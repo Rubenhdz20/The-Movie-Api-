@@ -1,12 +1,12 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../layout/index';
 import MovieDetails from '../pages/MoviesDetails/index';
 import SearchResults from '../pages/SearchResults/index';
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path='/' element={<Layout/>}/>
                 <Route path='/movie/:id' element={<MovieDetails/>}/>
@@ -14,7 +14,7 @@ const App = () => {
                 <Route path="/trending/movie/day" element={<SearchResults />} />
                 <Route path="/category/:category" element={<SearchResults />} />
             </Routes> 
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
