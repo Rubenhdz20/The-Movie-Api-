@@ -8,11 +8,11 @@ class ErrorBoundary extends Component {
 
   static getDerivedStateFromError(error) {
     return { hasError: true };
-  } // getDerivedStateFromError(error): This lifecycle method is used to update the state in response to an error being thrown.
+  } 
 
   componentDidCatch(error, errorInfo) {
     console.error("Error Boundary caught an error", error, errorInfo);
-  }// componentDidCatch(error, errorInfo): This lifecycle method is used to log the error or perform any side effects like sending error logs to an external service.
+  }
 
   render() {
     if (this.state.hasError) {

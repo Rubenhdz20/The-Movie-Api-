@@ -25,15 +25,3 @@ function Categories() {
 
 
 export default Categories;
-
-// Which components are the ones that when clicking to them you will be redirected to the search results 
-// SearchBar when clicking the magnifier svg
-// Category Component which is a button when you click to it 
-// The button that says SeeAll, it might be a component 
-
-// Which component will need to be redirected to the MovieDetails when you click it 
-// Movie Card of the Carousel 
-// Within searchResults each Movie Card
-// Arrow button is the one that redirects you to the home page 
-
-// I have to rethink the routes of the project 
